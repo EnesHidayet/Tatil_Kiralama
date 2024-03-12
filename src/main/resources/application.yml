@@ -1,0 +1,23 @@
+server:
+  port: 8080
+
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: TatilKiralamaDB2
+      username: bilgeUser
+      password: bilgeUser*
+
+  mail:
+    username: eneshidayet@gmail.com # java13mailusername
+    password: tlohobmrtukixtcr # java13mailpassword
+    host: smtp.gmail.com
+    port: 587
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true

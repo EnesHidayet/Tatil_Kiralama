@@ -1,0 +1,10 @@
+
+Ð
+java:S6804"­Either replace the "@Value" annotation with a standard field initialization, use "${propertyName}" to inject a property or use "#{expression}" to evaluate a SpEL expression.(ôù¨Òüÿÿÿÿ8Çˆ¾‰ã1
+Ð
+java:S6804"­Either replace the "@Value" annotation with a standard field initialization, use "${propertyName}" to inject a property or use "#{expression}" to evaluate a SpEL expression.(ü§ˆáûÿÿÿÿ8çÓ¾‰ã1
+Ð
+java:S6804"­Either replace the "@Value" annotation with a standard field initialization, use "${propertyName}" to inject a property or use "#{expression}" to evaluate a SpEL expression.(Ãžú üÿÿÿÿ8‚œ¿‰ã1
+E	java:S106("+Replace this use of System.out by a logger.(©þêÜúÿÿÿÿ
+E	java:S1068"+Replace this use of System.out by a logger.(©þêÜúÿÿÿÿ
+E	java:S106K"+Replace this use of System.out by a logger.(©þêÜúÿÿÿÿ
