@@ -1,5 +1,6 @@
 package org.enes.controller;
 
+import jakarta.validation.Valid;
 import org.enes.dto.request.AuthActivationRequestDto;
 import org.enes.dto.request.AuthLoginRequestDto;
 import org.enes.dto.request.AuthRegisterRequestDto;
@@ -18,7 +19,7 @@ public class AuthController {
     private final AuthService authService;
 
     @PostMapping("/register")
-    public ResponseEntity<String> register(@RequestBody AuthRegisterRequestDto dto) {
+    public ResponseEntity<String> register(@RequestBody @Valid AuthRegisterRequestDto dto) {
         return ResponseEntity.ok(authService.register(dto));
     }
 
@@ -45,5 +46,15 @@ public class AuthController {
     @GetMapping("/get-all")
     public ResponseEntity<List<Auth>> getAll() {
         return ResponseEntity.ok(authService.getAll());
+    }
+
+    @PutMapping("/update-phone")
+    public ResponseEntity<Boolean> updatePhone(String token, String phone) {
+        return ResponseEntity.ok(authService.updatePhone(token, phone));
+    }
+
+    @PutMapping("/update-email")
+    public ResponseEntity<Boolean> updateEmail(String token, String email) {
+        return ResponseEntity.ok(authService.updateEmail(token, email));
     }
 }

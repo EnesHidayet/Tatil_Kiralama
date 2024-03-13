@@ -31,6 +31,10 @@ public class AuthService {
     private final CacheManager cacheManager;
 
     public String register(AuthRegisterRequestDto dto){
+        Optional<Auth> authKontrol = authRepository.findByEmail(dto.getEmail());
+        if (authKontrol.isPresent())
+            throw new HolidayException(ErrorType.ALREADY_REGISTERED);
+
         Auth auth = authRepository.save(authMapper.fromRequestDtoToAuth(dto));
 
         mailService.sendMail(auth.getActivationCode());
@@ -76,6 +80,28 @@ public class AuthService {
         auth.get().setStatus(EStatus.DELETED);
         authRepository.save(auth.get());
         userProfileService.delete(auth.get().getId());
+        return true;
+    }
+
+    public Boolean updateEmail(String token, String email){
+        Optional<Auth> auth = authRepository.findById(jwtTokenManager.getIdFromToken(token).get());
+        if(auth.isEmpty())
+            throw new HolidayException(ErrorType.USER_NOT_FOUND);
+
+        auth.get().setEmail(email);
+        authRepository.save(auth.get());
+        userProfileService.updateEmail(token, email);
+        return true;
+    }
+
+    public Boolean updatePhone(String token, String phone) {
+        Optional<Auth> auth = authRepository.findById(jwtTokenManager.getIdFromToken(token).get());
+        if (auth.isEmpty())
+            throw new HolidayException(ErrorType.USER_NOT_FOUND);
+
+        auth.get().setPhone(phone);
+        authRepository.save(auth.get());
+        userProfileService.updatePhone(token, phone);
         return true;
     }
 

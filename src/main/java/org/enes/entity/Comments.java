@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.time.LocalDate;
+
 @Data
 @Builder
 @AllArgsConstructor
@@ -18,5 +20,7 @@ public class Comments {
     private String userId;
     private String hotelId;
     private String comment;
-    private String commentDate;
+    private Double point;
+    @Builder.Default
+    private String commentDate= LocalDate.now().toString();
 }

@@ -15,10 +15,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Reservation {
     @Id
     private String id;
-    private String paymentId;
     private String hotelId;
     private String roomId;
-    private String userId;
+    private String authId;
     private String startDate;
     private String endDate;
     private Integer numberOfPeople;

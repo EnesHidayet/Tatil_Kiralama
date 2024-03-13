@@ -12,5 +12,5 @@ import org.mapstruct.factory.Mappers;
 public interface AuthMapper {
     AuthMapper INSTANCE = Mappers.getMapper(AuthMapper.class);
 
-    Auth fromRequestDtoToAuth(AuthRegisterRequestDto authRegisterRequestDto);
+    Auth fromRequestDtoToAuth(final AuthRegisterRequestDto authRegisterRequestDto);
 }

@@ -9,6 +9,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -32,9 +33,14 @@ public class UserProfile implements Serializable {
     @Builder.Default
     private EStatus status= EStatus.PENDING;
 
-//    private List<Reservation> reservationList;
-    //private List<String> favoriteHotels; -> favourite kısmını nasıl tutalım?
-    // private List<UserProfile>registeredPerson kısmını nasıl yapalım?
+    @Builder.Default
+    private List<String> reservationListId = new ArrayList<>();
+    @Builder.Default
+    private List<String> favoriteHotelsId=new ArrayList<>();
+    @Builder.Default
+    private List<String> commentId=new ArrayList<>();
+    @Builder.Default
+    private List<UserProfile>registeredPerson=new ArrayList<>();
 
 
 
